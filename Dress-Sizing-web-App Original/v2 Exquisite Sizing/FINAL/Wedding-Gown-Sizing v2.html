@@ -1,0 +1,283 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exquisite Bride Sizing Program</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', sans-serif;
+            text-align: center;
+            font-weight: bold; 
+            margin: 0;
+            padding: 0;
+            background-color: purple;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+    
+        #logo {
+            max-width: 100%;
+            max-height: auto;
+            display: block;
+            border: 3px solid aliceblue;
+            border-radius: 35%;
+            background-color: aliceblue; 
+            text-align: center;
+            display: block;
+            margin: auto;  
+        }
+    
+        label {
+            display: block;
+            margin-top: 10px;
+            font-style: italic;
+            background-color: whitesmoke;
+            border-radius: 5px;
+        }
+    
+        input {
+            background-color: white;
+            margin-top: 5px;
+            padding: 5px;
+            width: 10%;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+    
+        button {
+            margin-top: 10px;
+            padding: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+    
+        #gsi-label, #result-label {
+            margin-top: 10px;
+            width: 10%;
+            background-color: aliceblue;
+        }
+
+        footer {
+            display: inline-block;
+            justify-content: space-evenly;
+            padding: 20px;
+            background-color: rgb(134, 43, 156);
+            border-radius: 5px;
+        }
+
+
+    </style>
+    
+</head>
+<body>
+    <div id="logo">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfQAAAH0CAYAAADL1t+KAAAAAXNSR0IArs4c6QAAAAlwSFlzAAAOxAAADsQBlSsOGwAABHFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0n77u/JyBpZD0nVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkJz8+Cjx4OnhtcG1ldGEgeG1sbnM6eD0nYWRvYmU6bnM6bWV0YS8nPgo8cmRmOlJERiB4bWxuczpyZGY9J2h0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMnPgoKIDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PScnCiAgeG1sbnM6QXR0cmliPSdodHRwOi8vbnMuYXR0cmlidXRpb24uY29tL2Fkcy8xLjAvJz4KICA8QXR0cmliOkFkcz4KICAgPHJkZjpTZXE+CiAgICA8cmRmOmxpIHJkZjpwYXJzZVR5cGU9J1Jlc291cmNlJz4KICAgICA8QXR0cmliOkNyZWF0ZWQ+MjAyMS0xMS0wNDwvQXR0cmliOkNyZWF0ZWQ+CiAgICAgPEF0dHJpYjpFeHRJZD4xN2ZhY2FhZC1jOGVjLTQyNGYtOTdlYy0zMDQ5NzI2NTIzNmQ8L0F0dHJpYjpFeHRJZD4KICAgICA8QXR0cmliOkZiSWQ+NTI1MjY1OTE0MTc5NTgwPC9BdHRyaWI6RmJJZD4KICAgICA8QXR0cmliOlRvdWNoVHlwZT4yPC9BdHRyaWI6VG91Y2hUeXBlPgogICAgPC9yZGY6bGk+CiAgIDwvcmRmOlNlcT4KICA8L0F0dHJpYjpBZHM+CiA8L3JkZjpEZXNjcmlwdGlvbj4KCiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0nJwogIHhtbG5zOmRjPSdodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyc+CiAgPGRjOnRpdGxlPgogICA8cmRmOkFsdD4KICAgIDxyZGY6bGkgeG1sOmxhbmc9J3gtZGVmYXVsdCc+ZXhxdWlzaXRlIGJyaWRlPC9yZGY6bGk+CiAgIDwvcmRmOkFsdD4KICA8L2RjOnRpdGxlPgogPC9yZGY6RGVzY3JpcHRpb24+CgogPHJkZjpE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" alt="Exquite Bride Logo" />
+    </div>
+
+    <label for="designer">Select Designer:</label>
+    <select id="designer" required>
+        <option value="" disabled selected><strong>Please Select a Designer</strong></option>
+        <option value="1"><strong>Eddy K</strong></option>
+        <option value="2"><strong>Eddy K Curvy</strong></option>
+        <option value="3"><strong>Elisssar</strong></option>
+        <option value="4"><strong>Randy Fenoli</strong></option>
+        <option value="5"><strong>Zakaa</strong></option>
+    </select>
+    
+    <label for="bust">Bust measurement:</label>
+    <input type="text" id="bust">
+
+    <label for="waist">Waist measurement:</label>
+    <input type="text" id="waist">
+
+    <label for="hips">Hips measurement:</label>
+    <input type="text" id="hips"><br>
+
+    <button onclick="calculateSize()">Calculate Size</button>
+
+    <div id="gsi-label"></div>
+    <div id="result-label"></div>
+
+    <script>
+        function calculateSize() {
+            var bust = parseFloat(document.getElementById('bust').value);
+            var waist = parseFloat(document.getElementById('waist').value);
+            var hips = parseFloat(document.getElementById('hips').value);
+        
+            var gsiLabel = document.getElementById('gsi-label');
+            var resultLabel = document.getElementById('result-label');
+            const designerDropdown = document.getElementById("designer");
+        
+            // Declare selectedDesigner outside the event listener
+            var selectedDesigner = designerDropdown.value;
+        
+            designerDropdown.addEventListener("change", function() {
+                // Update the selectedDesigner value when the dropdown changes
+                selectedDesigner = designerDropdown.value;
+            });
+        
+            gsiLabel.textContent = "Gown size is";
+        
+            if (selectedDesigner == 1 && bust <= 32 && waist <= 23.5 && hips <= 35.5) {
+                resultLabel.textContent = "Eddy K 0.";
+            } else if (selectedDesigner == 1 && bust <= 33 && waist <= 24.5 && hips <= 36.5) {
+                resultLabel.textContent = "Eddy K 2.";
+            }  else if (selectedDesigner == 1 && bust <= 34 && waist <= 25.5 && hips <= 37.5) {
+                resultLabel.textContent = "Eddy K 4.";
+            }  else if (selectedDesigner == 1 && bust <= 35 && waist <= 26.5 && hips <= 38.5) {
+                resultLabel.textContent = "Eddy K 6.";
+            }  else if (selectedDesigner == 1 && bust <= 36.5 && waist <= 28 && hips <= 40) {
+                resultLabel.textContent = "Eddy K 8.";
+            }  else if (selectedDesigner == 1 && bust <= 38 && waist <= 30 && hips <= 41.5) {
+                resultLabel.textContent = "Eddy K 10.";
+            }  else if (selectedDesigner == 1 && bust <= 39.5 && waist <= 31.5 && hips <= 43) {
+                resultLabel.textContent = "Eddy K 12.";
+            }  else if (selectedDesigner == 1 && bust <= 41 && waist <= 33 && hips <= 44.5) {
+                resultLabel.textContent = "Eddy K 14.";
+            }  else if (selectedDesigner == 1 && bust <= 42.5 && waist <= 35.5 && hips <= 46) {
+                resultLabel.textContent = "Eddy K 16.";
+            }  else if (selectedDesigner == 1 && bust <= 44.5 && waist <= 36.5 && hips <= 47.5) {
+                resultLabel.textContent = "Eddy K 18.";
+            }  else if (selectedDesigner == 1 && bust <= 46.5 && waist <= 38.5 && hips <= 49.5) {
+                resultLabel.textContent = "Eddy K 20.";
+            }  else if (selectedDesigner == 1 && bust <= 48.5 && waist <= 41 && hips <= 51.5) {
+                resultLabel.textContent = "Eddy K 22.";
+            }  else if (selectedDesigner == 1 && bust <= 50.5 && waist <= 44 && hips <= 53.5) {
+                resultLabel.textContent = "Eddy K 24.";
+            }  else if (selectedDesigner == 1 && bust <= 53.5 && waist <= 47 && hips <= 56.5) {
+                resultLabel.textContent = "Eddy K 26.";
+            }  else if (selectedDesigner == 1 && bust <= 56.5 && waist <= 50 && hips <= 59.5) {
+                resultLabel.textContent = "Eddy K 28.";
+            }  else if (selectedDesigner == 2 && bust <= 44 && waist <= 36 && hips <= 48) {
+                resultLabel.textContent = "Eddy K Curvy 16W.";
+            }  else if (selectedDesigner == 2 && bust <= 46 && waist <= 38 && hips <= 50) {
+                resultLabel.textContent = "Eddy K Curvy 18W.";
+            }  else if (selectedDesigner == 2 && bust <= 48 && waist <= 40 && hips <= 52) {
+                resultLabel.textContent = "Eddy K Curvy 20W.";
+            }  else if (selectedDesigner == 2 && bust <= 50 && waist <= 42.5 && hips <= 54.5) {
+                resultLabel.textContent = "Eddy K Curvy 22W.";
+            }  else if (selectedDesigner == 2 && bust <= 52 && waist <= 45 && hips <= 57) {
+                resultLabel.textContent = "Eddy K Curvy 24.";
+            }  else if (selectedDesigner == 2 && bust <= 54 && waist <= 47.5 && hips <= 59) {
+                resultLabel.textContent = "Eddy K Curvy 26W.";
+            }  else if (selectedDesigner == 2 && bust <= 56 && waist <= 50 && hips <= 61) {
+                resultLabel.textContent = "Eddy K Curvy 28W.";
+            }  else if (selectedDesigner == 2 && bust <= 58 && waist <= 52.5 && hips <= 64) {
+                resultLabel.textContent = "Eddy K Curvy 30W.";
+            }  else if (selectedDesigner == 2 && bust <= 60 && waist <= 55 && hips <= 66) {
+                resultLabel.textContent = "Eddy K Curvy 32W.";
+            }  else if (selectedDesigner == 3 && bust <= 28.3 && waist <= 20.5 && hips <= 31.5) {
+                resultLabel.textContent = "Elissar 0.";
+            }  else if (selectedDesigner == 3 && bust <= 29.9 && waist <= 22 && hips <= 33.1) {
+                resultLabel.textContent = "Elissar 2.";
+            }  else if (selectedDesigner == 3 && bust <= 31.5 && waist <= 23.6 && hips <= 34.6) {
+                resultLabel.textContent = "Elissar 4.";
+            }  else if (selectedDesigner == 3 && bust <= 33.1 && waist <= 25.2 && hips <= 36.2) {
+                resultLabel.textContent = "Elissar 6.";
+            }  else if (selectedDesigner == 3 && bust <= 34.6 && waist <= 26.8 && hips <= 37.8) {
+                resultLabel.textContent = "Elissar 8.";
+            }  else if (selectedDesigner == 3 && bust <= 36.2 && waist <= 28.3 && hips <= 39.4) {
+                resultLabel.textContent = "Elissar 10.";
+            }  else if (selectedDesigner == 3 && bust <= 37.8 && waist <= 29.9 && hips <= 40.9) {
+                resultLabel.textContent = "Elissar 12.";
+            }  else if (selectedDesigner == 3 && bust <= 39.4 && waist <= 31.5 && hips <= 42.5) {
+                resultLabel.textContent = "Elissar 14.";
+            }  else if (selectedDesigner == 3 && bust <= 40.9 && waist <= 33.1 && hips <= 44.1) {
+                resultLabel.textContent = "Elissar 16.";
+            }  else if (selectedDesigner == 3 && bust <= 42.5 && waist <= 34.6 && hips <= 45.7) {
+                resultLabel.textContent = "Elissar 18.";
+            }  else if (selectedDesigner == 3 && bust <= 44.1 && waist <= 36.2 && hips <= 47.2) {
+                resultLabel.textContent = "Elissar 20.";
+            }  else if (selectedDesigner == 3 && bust <= 45.7 && waist <= 37.8 && hips <= 48.8) {
+                resultLabel.textContent = "Elissar 22.";
+            }  else if (selectedDesigner == 3 && bust <= 47.2 && waist <= 39.4 && hips <= 50.4) {
+                resultLabel.textContent = "Elissar 24.";
+            }  else if (selectedDesigner == 3 && bust <= 48.8 && waist <= 40.9 && hips <= 52) {
+                resultLabel.textContent = "Elissar 26.";
+            }  else if (selectedDesigner == 3 && bust <= 50.4 && waist <= 42.5 && hips <= 53.5) {
+                resultLabel.textContent = "Elissar 28.";
+            }  else if (selectedDesigner == 4 && bust <= 33 && waist <= 24.5 && hips <= 36) {
+                resultLabel.textContent = "Randy Fenoli 00.";
+            }  else if (selectedDesigner == 4 && bust <= 34 && waist <= 25.5 && hips <= 37) {
+                resultLabel.textContent = "Randy Fenoli 0.";
+            }  else if (selectedDesigner == 4 && bust <= 35 && waist <= 26.5 && hips <= 38) {
+                resultLabel.textContent = "Randy Fenoli 2.";
+            }  else if (selectedDesigner == 4 && bust <= 36 && waist <= 27.5 && hips <= 39) {
+                resultLabel.textContent = "Randy Fenoli 4.";
+            }  else if (selectedDesigner == 4 && bust <= 38 && waist <= 29.5 && hips <= 41) {
+                resultLabel.textContent = "Randy Fenoli 6.";
+            }  else if (selectedDesigner == 4 && bust <= 39 && waist <= 30.5 && hips <= 42) {
+                resultLabel.textContent = "Randy Fenoli 8.";
+            }  else if (selectedDesigner == 4 && bust <= 40.5 && waist <= 32 && hips <= 43.5) {
+                resultLabel.textContent = "Randy Fenoli 10.";
+            }  else if (selectedDesigner == 4 && bust <= 42 && waist <= 33.5 && hips <= 45) {
+                resultLabel.textContent = "Randy Fenoli 12.";
+            }  else if (selectedDesigner == 4 && bust <= 45 && waist <= 37.5 && hips <= 48.5) {
+                resultLabel.textContent = "Randy Fenoli 14.";
+            }  else if (selectedDesigner == 4 && bust <= 47 && waist <= 39.5 && hips <= 50.5) {
+                resultLabel.textContent = "Randy Fenoli 16.";
+            }  else if (selectedDesigner == 4 && bust <= 49 && waist <= 41.5 && hips <= 52.5) {
+                resultLabel.textContent = "Randy Fenoli 18.";
+            }  else if (selectedDesigner == 4 && bust <= 51 && waist <= 44 && hips <= 55) {
+                resultLabel.textContent = "Randy Fenoli 20.";
+            }  else if (selectedDesigner == 4 && bust <= 53 && waist <= 46.5 && hips <= 57.5) {
+                resultLabel.textContent = "Randy Fenoli 22.";
+            }  else if (selectedDesigner == 4 && bust <= 55 && waist <= 49 && hips <= 60) {
+                resultLabel.textContent = "Randy Fenoli 24.";
+            }  else if (selectedDesigner == 4 && bust <= 57 && waist <= 51.5 && hips <= 62.5) {
+                resultLabel.textContent = "Randy Fenoli 26.";
+            }  else if (selectedDesigner == 4 && bust <= 60 && waist <= 53.5 && hips <= 65.5) {
+                resultLabel.textContent = "Randy Fenoli 28.";
+            }  else if (selectedDesigner == 4 && bust <= 62 && waist <= 55.5 && hips <= 67.5) {
+                resultLabel.textContent = "Randy Fenoli 30.";
+            }  else if (selectedDesigner == 5 && bust <= 31.5 && waist <= 23.5 && hips <= 34) {
+                resultLabel.textContent = "Zakaa 0.";
+            }  else if (selectedDesigner == 5 && bust <= 32.5 && waist <= 24.5 && hips <= 34) {
+                resultLabel.textContent = "Zakaa 2.";
+            }  else if (selectedDesigner == 5 && bust <= 33.5 && waist <= 25.5 && hips <= 36) {
+                resultLabel.textContent = "Zakaa 4.";
+            }  else if (selectedDesigner == 5 && bust <= 34.5 && waist <= 26.5 && hips <= 37) {
+                resultLabel.textContent = "Zakaa 6.";
+            }  else if (selectedDesigner == 5 && bust <= 36 && waist <= 28 && hips <= 38.5) {
+                resultLabel.textContent = "Zakaa 8.";
+            }  else if (selectedDesigner == 5 && bust <= 37.5 && waist <= 29.5 && hips <= 40) {
+                resultLabel.textContent = "Zakaa 10.";
+            }  else if (selectedDesigner == 5 && bust <= 39 && waist <= 31 && hips <= 41.5) {
+                resultLabel.textContent = "Zakaa 12.";
+            }  else if (selectedDesigner == 5 && bust <= 41 && waist <= 33 && hips <= 43.5) {
+                resultLabel.textContent = "Zakaa 14.";
+            }  else if (selectedDesigner == 5 && bust <= 43 && waist <= 35 && hips <= 45.5) {
+                resultLabel.textContent = "Zakaa 16.";
+            }  else if (selectedDesigner == 5 && bust <= 45 && waist <= 37 && hips <= 47.5) {
+                resultLabel.textContent = "Zakaa 18.";
+            }  else if (selectedDesigner == 5 && bust <= 48 && waist <= 40 && hips <= 50.5) {
+                resultLabel.textContent = "Zakaa 20.";
+            }  else if (selectedDesigner == 5 && bust <= 51 && waist <= 43 && hips <= 53.5) {
+                resultLabel.textContent = "Zakaa 22.";
+            }  else if (selectedDesigner == 5 && bust <= 54 && waist <= 46 && hips <= 56.5) {
+                resultLabel.textContent = "Zakaa 24.";  
+            }  else if (selectedDesigner == 5 && bust <= 57 && waist <= 49 && hips <= 59.5) {
+                resultLabel.textContent = "Zakaa 26.";
+            }  else if (selectedDesigner == 5 && bust <= 60 && waist <= 52 && hips <= 62.6) {
+                resultLabel.textContent = "Zakaa 28.";              
+            } else {
+                resultLabel.textContent = "Custom Sizing Needed";
+            }
+        }
+    </script>
+</body>
+<br>
+<br>
+<footer>
+    <article> CopyRight 2024 ItsHeyBlinken </article>
+    <article>Confidential and Propietary </article>
+</footer>
+
+</html>
