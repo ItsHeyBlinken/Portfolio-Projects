@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <img src="./2.png" alt="Logo" class="logo">
+    </header>
+    <div class="container">
+        <h1>To-Do List</h1>
+        <form id="todo-form">
+            <input type="text" id="todo-input" placeholder="Enter a new task">
+            <input type="date" id="todo-date">
+            <select id="todo-priority">
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+            </select>
+            <button type="submit">Add</button>
+        </form>
+        <div id="filters">
+            <button id="filter-date">Sort by Date</button>
+            <button id="filter-priority">Sort by Priority</button>
+        </div>
+        <table id="todo-table">
+            <thead>
+                <tr>
+                    <th>Complete</th>
+                    <th>Task</th>
+                    <th>Due Date</th>
+                    <th>Priority</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="todo-list">
+                <tr>
+                    <td><input type="checkbox" class="todo-checkbox"></td>
+                    <td class="todo-text">Sample Task</td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <button class="edit-btn">Edit</button>
+                        <button class="delete-btn">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2>Completed Tasks</h2>
+        <table id="completed-table">
+            <thead>
+                <tr>
+                    <th>Complete</th>
+                    <th>Task</th>
+                    <th>Due Date</th>
+                    <th>Priority</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="completed-list"></tbody>
+        </table>
+        <button id="clear-completed-btn">Clear Completed</button>
+        <button id="export-btn">Export to JSON</button>
+        <input type="file" id="import-file" style="display: none;">
+        <button id="import-btn">Import from JSON</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
